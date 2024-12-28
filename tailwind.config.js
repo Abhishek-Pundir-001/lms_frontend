@@ -1,9 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ["./src/**/*.{html,js,ts,jsx,tsx}"],
+  content: ["/src/**/*.{html,js,ts,jsx,tsx}",
+     'src/Components/**/*.jsx'
+  ],
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require('daisyui',require('@tailwindcss/line-clamp'))],
 }
 

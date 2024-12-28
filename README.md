@@ -38,10 +38,11 @@ npm install -D tailwindcss
 npx tailwindcss init
 ***
 
-3.Add file extension in talwind config files in the contents property
+3.Add file extension in talwind config files in the contents property and the required plugins
 
 ***
-"./src/**/*.{html,js}"
+"./src/**/*.{html,js}" --extensions
+require('daisyui',require('@tailwindcss/line-clamp')) -- Add these plugins
 
 ***
 
