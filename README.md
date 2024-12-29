@@ -41,7 +41,7 @@ npx tailwindcss init
 3.Add file extension in talwind config files in the contents property and the required plugins
 
 ***
-"./src/**/*.{html,js}" --extensions
+"./src/**/*.{html,js}" --extensions <br>
 require('daisyui',require('@tailwindcss/line-clamp')) -- Add these plugins
 
 ***
