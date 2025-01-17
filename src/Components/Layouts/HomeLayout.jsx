@@ -4,8 +4,14 @@ import { FiMenu } from 'react-icons/fi';
 import { Link } from 'react-router-dom';
 import Footer from '../Footer/Footer';
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { logOutUser } from '../../Redux/slices/AuthSlice';
 
 function HomeLayout({ children }) {
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const isLoggedIn = useSelector((state) => state?.auth?.isLoggedIn);
     const role = useSelector((state) => state?.auth?.role)
@@ -22,8 +28,13 @@ function HomeLayout({ children }) {
         changeWidth()
     }
 
-    function handleLogout(){
-        
+   async function handleLogout(e){
+        e.preventDefault();
+        const response = await dispatch(logOutUser())
+
+        if(response?.payload?.success){
+            navigate("/")
+        }
     }
 
     return (
