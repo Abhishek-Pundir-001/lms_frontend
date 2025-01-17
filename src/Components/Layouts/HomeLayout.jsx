@@ -23,7 +23,7 @@ function HomeLayout({ children }) {
     }
 
     function handleLogout(){
-
+        
     }
 
     return (
