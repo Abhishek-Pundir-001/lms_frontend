@@ -10,11 +10,13 @@ import { logOutUser } from '../../Redux/slices/AuthSlice';
 
 function HomeLayout({ children }) {
 
+    // const { role } = useSelector((state)=>state.auth)
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const isLoggedIn = useSelector((state) => state?.auth?.isLoggedIn);
-    const role = useSelector((state) => state?.auth?.role)
+    const {role} = useSelector((state) => state?.auth)
 
 
     function changeWidth() {
@@ -61,10 +63,10 @@ function HomeLayout({ children }) {
                             <li>
                                 <Link to='/'>Home</Link>
                             </li>
-                            {role &&
+                            { role === 'ADMIN' ? (
                                 <li>
                                     <Link to='/'>AdminDashboard</Link>
-                                </li>}
+                                </li>):''}
                             <li>
                                 <Link to='courses'>Courses</Link>
                             </li>

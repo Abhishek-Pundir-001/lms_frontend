@@ -6,6 +6,7 @@ import { createAccount } from "../../Redux/slices/AuthSlice";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { checkEmail, checkPassword } from "../../Helpers/validationCheck";
 
 // const navigate = useNavigate()
 
@@ -65,13 +66,13 @@ function SignUpPage() {
             return
         }
 
-        if (!signupData.email.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)) {
+        if (!checkEmail(signupData.email)) {
             toast.error('please enter a valid email')
             return
         }
 
 
-        if (!signupData.password.match(/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/)) {
+        if (!checkPassword(signupData.password)) {
             toast.error('password must contain at least 6 char and minimum one number and one letter')
             return
         }
