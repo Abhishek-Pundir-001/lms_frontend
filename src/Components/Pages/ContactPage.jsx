@@ -64,7 +64,8 @@ function ContactPage() {
     return (
         <HomeLayout>
             <div className="h-[96vh] flex bg-slate-900 items-center justify-center">
-                <form onSubmit={onFormSubmit} noValidate className="flex flex-col p-4  gap-2 border-2 w-[22rem] shadow-[0_0_10px_black] rounded-md text-white">
+                <form onSubmit={onFormSubmit} noValidate 
+                className="flex flex-col p-4  gap-2  w-[22rem] shadow-[0_0_10px_blue] rounded-md text-white">
                     <h1 className="text-2xl text-center text-yellow-300 font-medium">Contact Form</h1>
                     <div className="flex flex-col mb-2">
                         <label htmlFor="name" className="mb-2">Name:</label>

@@ -39,7 +39,7 @@ function LoginPage() {
     return (
         <HomeLayout>
             <div className="h-[100vh] flex flex-col justify-center items-center text-white bg-slate-900">
-                <form className="flex flex-col gap-4 p-4 border-2 rounded-md">
+                <form className="flex flex-col gap-4 p-4 shadow-[0_0_10px_black] rounded-md">
                     <h2 className="text-center font-medium text-xl">Login Form</h2>
                     <div className="w-full">
                         <label htmlFor="email">Email</label>

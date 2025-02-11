@@ -105,11 +105,13 @@ function SignUpPage() {
     return (
         <HomeLayout>
             <div className="flex flex-col h-[92vh]  bg-slate-900  justify-center items-center">
-                <form encType="multipart/form-data" className="flex flex-col items-center justify-center p-4 gap-2 border-2 rounded-md text-white shadow-[0_35px_60px_-15px_rgba(0,0,0,0.3)]">
+                <form encType="multipart/form-data"
+                    className="flex flex-col items-center justify-center p-4 gap-2 rounded-md text-white shadow-[0_0_10px_black]">
                     {/* <h2>Registration Form</h2> */}
                     <label htmlFor="image-uploads">
                         {
-                            previewImage ? <img src={previewImage} alt="" className="w-24 h-24 m-auto rounded-full" name="avatar" /> : <BsPersonCircle className="w-24 h-24 m-auto" />
+                            previewImage ? <img src={previewImage} alt=""
+                                className="w-24 h-24 m-auto rounded-full" name="avatar" /> : <BsPersonCircle className="w-24 h-24 m-auto" />
                         }
                     </label>
                     <input

@@ -17,7 +17,7 @@ function CourseList(){
 
     return(
         <HomeLayout>
-            <div className="h-[96vh] flex flex-wrap bg-slate-900 gap-14 text-white pl-20 pt-12">
+            <div className="min-h-[96vh] h-auto flex flex-wrap bg-slate-900 gap-14 text-white pl-20 pb-12 pt-20">
             {courseData?.map((element)=>{
                 return <CourseCard key={element._id} data={element} />
             })}

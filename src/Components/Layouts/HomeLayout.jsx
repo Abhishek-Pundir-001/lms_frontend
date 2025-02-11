@@ -16,7 +16,7 @@ function HomeLayout({ children }) {
     const navigate = useNavigate();
 
     const isLoggedIn = useSelector((state) => state?.auth?.isLoggedIn);
-    const {role} = useSelector((state) => state?.auth)
+    const { role } = useSelector((state) => state?.auth)
 
 
     function changeWidth() {
@@ -30,11 +30,11 @@ function HomeLayout({ children }) {
         changeWidth()
     }
 
-   async function handleLogout(e){
+    async function handleLogout(e) {
         e.preventDefault();
         const response = await dispatch(logOutUser())
 
-        if(response?.payload?.success){
+        if (response?.payload?.success) {
             navigate("/")
         }
     }
@@ -63,12 +63,21 @@ function HomeLayout({ children }) {
                             <li>
                                 <Link to='/'>Home</Link>
                             </li>
-                            { role === 'ADMIN' ? (
-                                <li>
-                                    <Link to='/'>AdminDashboard</Link>
-                                </li>):''}
+                            {role === 'ADMIN' ? (
+                                <div>
+                                    <li>
+                                        <Link to='/'>AdminDashboard</Link>
+
+                                    </li>
+                                    <li>
+                                        <Link to='/create/course'>Create Course</Link>
+
+                                    </li>
+                                </div>
+
+                            ) : ''}
                             <li>
-                                <Link to='courses'>Courses</Link>
+                                <Link to='/courses'>Courses</Link>
                             </li>
                             <li>
                                 <Link to='/contact'>Contact us</Link>
@@ -76,21 +85,21 @@ function HomeLayout({ children }) {
                             <li>
                                 <Link to='/about'>About us</Link>
                             </li>
-                            {!isLoggedIn && ( 
-                             <li className='absolute bottom-4 w-[90%]'>
-                               <div className='w-full flex'>
-                                <Link to='/login'className='w-1/2 bg-pink-600 text-center rounded-md'><button className='px-4 py-2 text-white'>Login</button></Link>
-                                <Link to='/signup' className='w-1/2 bg-purple-600 text-center rounded-md'><button className=' px-4 py-2 text-white'>signUp</button></Link>
-                               </div>
-                           </li>
+                            {!isLoggedIn && (
+                                <li className='absolute bottom-4 w-[90%]'>
+                                    <div className='w-full flex'>
+                                        <Link to='/login' className='w-1/2 bg-pink-600 text-center rounded-md'><button className='px-4 py-2 text-white'>Login</button></Link>
+                                        <Link to='/signup' className='w-1/2 bg-purple-600 text-center rounded-md'><button className=' px-4 py-2 text-white'>signUp</button></Link>
+                                    </div>
+                                </li>
                             )}
-                            {isLoggedIn && ( 
-                             <li className='absolute bottom-4 w-[90%]'>
-                               <div className='w-full flex'>
-                                <Link to='/userprofile'className='w-1/2 bg-pink-600 text-center rounded-md'><button className='px-4 py-2 text-white'>Profile</button></Link>
-                                <Link onClick={handleLogout} className='w-1/2 bg-purple-600 text-center rounded-md'><button className=' px-4 py-2 text-white'>Logout</button></Link>
-                               </div>
-                           </li>
+                            {isLoggedIn && (
+                                <li className='absolute bottom-4 w-[90%]'>
+                                    <div className='w-full flex'>
+                                        <Link to='/userprofile' className='w-1/2 bg-pink-600 text-center rounded-md'><button className='px-4 py-2 text-white'>Profile</button></Link>
+                                        <Link onClick={handleLogout} className='w-1/2 bg-purple-600 text-center rounded-md'><button className=' px-4 py-2 text-white'>Logout</button></Link>
+                                    </div>
+                                </li>
                             )}
                         </ul>
                     </div>
