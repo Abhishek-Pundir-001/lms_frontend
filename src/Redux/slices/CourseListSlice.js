@@ -21,6 +21,7 @@ export const getAllCourses = createAsyncThunk('/course/list', async () => {
 
 export const createNewCourse = createAsyncThunk('/course/create',async (data)=>{
  try{
+    console.log(data)
     const res = axiosInstance.post('/courses',data)
     toast.promise(res,{
       loading:"wait creating a new course",

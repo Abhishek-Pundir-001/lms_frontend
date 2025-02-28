@@ -15,7 +15,7 @@ function CourseDesc() {
     return (
         <HomeLayout>
             <div className="h-[92vh] bg-slate-600 flex items-center justify-center">
-                <div className="flex  shadow-[0_0_10px_black] w-[30rem] rounded-md">
+                <div className="flex  shadow-[0_0_10px_black] w-[22rem] md:w-[30rem] rounded-md">
                     <div className="w-1/2 flex flex-col">
                         <img src={data?.thumbnail?.secure_url} alt="thumbnail" className="h-28 w-full rounded-sm" />
                         <div className="pl-4 pb-4 mt-2">

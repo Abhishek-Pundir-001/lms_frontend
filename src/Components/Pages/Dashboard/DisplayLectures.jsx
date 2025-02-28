@@ -30,10 +30,10 @@ function DisplayLectures() {
 
     return (
         <HomeLayout>
-            <div className="min-h-[96vh] bg-slate-900 flex items-center justify-center">
-                <div className="min-h-[25rem] flex gap-8 w-[50rem] p-4 shadow-[0_0_10px_white] rounded-md">
+            <div className="min-h-[96vh] bg-slate-900 flex items-center justify-center p-4">
+                <div className="min-h-[25rem] mt-20 flex flex-col md:flex-row gap-8 w-[30rem] md:w-[45rem] p-4 shadow-[0_0_10px_white] rounded-md">
                     {/* left-section */}
-                    {lectures[cuurentvideo]?.lecture ? (<div className="flex shadow-[0_0_10px_black] flex-col rounded-md w-96">
+                    {lectures[cuurentvideo]?.lecture ? (<div className="flex shadow-[0_0_10px_black] flex-col rounded-md  md:w-96">
                         <video src={lectures[cuurentvideo]?.lecture?.secure_url}
                             className="object-fill rounded-md" controls disablePictureInPicture controlsList="nodownload"
                         ></video>
@@ -46,7 +46,7 @@ function DisplayLectures() {
                     </div>) : (<div className="w-96 shadow-[0_0_10px_black] text-white h-auto flex items-center justify-center"><h1 className="text-xl font-bold">No lecture yet</h1></div>)
                     }
                     {/* Right-section */}
-                    <ul className="space-y-4  h-[25rem] w-[22rem] rounded-sm p-4 shadow-[0_0_10px_white] overflow-scroll bg-white">
+                    <ul className="space-y-4 mb-5  h-[25rem] w-[22rem] rounded-sm p-4 shadow-[0_0_10px_white] overflow-scroll bg-white">
                         <div className="flex justify-between items-center">
                             <li className="text-yellow-400 text-xl font-medium">Lectures</li>
                             <li>

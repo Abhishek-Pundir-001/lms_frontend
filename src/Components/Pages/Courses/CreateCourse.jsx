@@ -1,4 +1,3 @@
-import { use } from "react";
 import { useState } from "react"
 import toast from "react-hot-toast"
 import { useDispatch } from "react-redux"
@@ -21,7 +20,7 @@ function CreateCourse() {
 
     function handleCourseData(e) {
         const { name, value } = e.target
-        console.log(name, value)
+        // console.log(name, value)
         setCourseData({
             ...courseData,
             [name]: value
@@ -87,68 +86,68 @@ function CreateCourse() {
 
     return (
         <HomeLayout>
-             <div className="bg-slate-900 flex items-center justify-center h-[92vh]">
-            <form onSubmit={createCourse} encType="multipart/form-data" noValidate className="flex gap-4 w-[50rem] shadow-[0_0_10px_white] rounded-lg">
-                <div className="w-1/2">
-                    <label htmlFor="lecturethumbnail">
-                        <div className="h-[77%] w-full rounded-t-md bg-white text-black text-xl font-bold flex items-center justify-center">
-                            {lectureThumbnail ? <img src={lectureThumbnail} alt="" className="h-full" /> :
-                                <h1 className="text-center my-auto">Click to upload course thumbnail</h1>}
+            <div className="bg-slate-900 flex items-center justify-center min-h-[92vh]">
+                <form onSubmit={createCourse} encType="multipart/form-data" noValidate className="flex flex-col-reverse md:flex md:flex-row gap-4  md:w-[45rem] w-full shadow-[0_0_10px_white] rounded-lg p-4">
+                    <div className="md:w-1/2 w-full">
+                        <label htmlFor="lecturethumbnail">
+                            <div className="h-32 md:h-[77%] w-full rounded-t-md bg-white text-black text-xl font-bold flex items-center justify-center">
+                                {lectureThumbnail ? <img src={lectureThumbnail} alt="" className="h-full" /> :
+                                    <h1 className="text-center my-auto">Click to upload course thumbnail</h1>}
 
-                        </div>
-                    </label>
-                    <input
-                        type="file"
-                        id="lecturethumbnail"
-                        className="invisible"
-                        accept=".jpg, .jpeg, .svg, .png"
-                        onChange={getThumbnail}
-                    />
+                            </div>
+                        </label>
+                        <input
+                            type="file"
+                            id="lecturethumbnail"
+                            className="invisible"
+                            accept=".jpg, .jpeg, .svg, .png"
+                            onChange={getThumbnail}
+                        />
 
-                    <button className="w-[98%] border-none bg-yellow-500 rounded-md  text-white py-2 mt-4 ml-1" type="submit">Create Course</button>
+                        <button className="w-[98%] border-none bg-yellow-500 rounded-md  text-white py-2 mt-4 ml-1" type="submit">Create Course</button>
 
 
-                </div>
-                <div className="flex flex-col gap-2 w-1/2 p-4">
-                    <label htmlFor="title" className="text-white text-xl font-medium">Title:</label>
-                    <input type="text"
-                        name="title"
-                        id="title"
-                        onChange={handleCourseData}
-                        value={courseData.title}
-                        className="bg-transparent rounded-md outline-none p-1 border-2 mt-2 w-[95%] text-white"
-                    />
-                    <label htmlFor="description" className="text-white text-xl font-medium">Description:</label>
-                    <textarea rows={4}
-                        name="description"
-                        id="description"
-                        onChange={handleCourseData}
-                        value={courseData.description}
-                        className="bg-transparent rounded-md outline-none p-1 border-2 mt-2 w-[95%] text-white
+                    </div>
+                    <div className="flex flex-col gap-2 w-full mt-10 md:w-1/2 p-4">
+                        <label htmlFor="title" className="text-white text-xl font-medium">Title:</label>
+                        <input type="text"
+                            name="title"
+                            id="title"
+                            onChange={handleCourseData}
+                            value={courseData.title}
+                            className="bg-transparent rounded-md outline-none p-1 border-2 mt-2 w-[95%] text-white"
+                        />
+                        <label htmlFor="description" className="text-white text-xl font-medium">Description:</label>
+                        <textarea rows={4}
+                            name="description"
+                            id="description"
+                            onChange={handleCourseData}
+                            value={courseData.description}
+                            className="bg-transparent rounded-md outline-none p-1 border-2 mt-2 w-[95%] text-white
                         resize-none"
-                    />
-                    <label htmlFor="category" className="text-white text-xl font-medium">Category:</label>
-                    <input type="text"
-                        name="category"
-                        id="category"
-                        value={courseData.category}
-                        onChange={handleCourseData}
-                        className="bg-transparent rounded-md outline-none p-1 border-2 mt-2 w-[95%] text-white"
-                    />
-                    <label htmlFor="createdBy" className="text-white text-xl font-medium">Instructor:</label>
-                    <input type="text"
-                        name="createdBy"
-                        id="createdBy"
-                        value={courseData.createdBy}
-                        onChange={handleCourseData}
-                        className="bg-transparent rounded-md outline-none p-1 border-2 mt-2 w-[95%] text-white"
-                    />
+                        />
+                        <label htmlFor="category" className="text-white text-xl font-medium">Category:</label>
+                        <input type="text"
+                            name="category"
+                            id="category"
+                            value={courseData.category}
+                            onChange={handleCourseData}
+                            className="bg-transparent rounded-md outline-none p-1 border-2 mt-2 w-[95%] text-white"
+                        />
+                        <label htmlFor="createdBy" className="text-white text-xl font-medium">Instructor:</label>
+                        <input type="text"
+                            name="createdBy"
+                            id="createdBy"
+                            value={courseData.createdBy}
+                            onChange={handleCourseData}
+                            className="bg-transparent rounded-md outline-none p-1 border-2 mt-2 w-[95%] text-white"
+                        />
 
-                </div>
-            </form>
-        </div>
+                    </div>
+                </form>
+            </div>
         </HomeLayout>
-       
+
     )
 }
 
